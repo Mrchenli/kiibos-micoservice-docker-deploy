@@ -1,21 +1,46 @@
 version: '3.3'
 services:
-  paascloud-eureka:
-      container_name: paascloud-eureka
-      hostname: paascloud-eureka
+
+  kiibos-eureka:
+      container_name: kiibos-eureka
+      hostname: kiibos-eureka
       image: ${EUREKA_IMAGE_NAME}
       deploy:
         mode: replicated
-        replicas: 3
+        replicas: 1
         restart_policy:
           condition: on-failure
-      #ports:
-      #  - "8761:8761"
-#      deploy:
-#        placement:
-#          constraints:
-#            - engine.labels.function == nodethree
+      ports:
+        - "8761:8761"
+      environment:
+        - EUREKA_SRV_LIST=http://kiibos-eureka:8761/eureka/,http://kiibos-eureka2:8762/eureka/,http://kiibos-eureka3:8763/eureka/
+  kiibos-eureka2:
+      container_name: kiibos-eureka
+      hostname: kiibos-eureka
+      image: ${EUREKA_IMAGE_NAME}
+      deploy:
+        mode: replicated
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+      ports:
+        - "8762:8761"
+      environment:
+        - EUREKA_SRV_LIST=http://kiibos-eureka:8761/eureka/,http://kiibos-eureka2:8762/eureka/,http://kiibos-eureka3:8763/eureka/
 
+  kiibos-eureka3:
+      container_name: kiibos-eureka
+      hostname: kiibos-eureka
+      image: ${EUREKA_IMAGE_NAME}
+      deploy:
+        mode: replicated
+        replicas: 1
+        restart_policy:
+          condition: on-failure
+      ports:
+        - "8763:8761"
+      environment:
+        - EUREKA_SRV_LIST=http://kiibos-eureka:8761/eureka/,http://kiibos-eureka2:8762/eureka/,http://kiibos-eureka3:8763/eureka/
 
 networks:
   default:

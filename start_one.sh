@@ -22,7 +22,7 @@ export MYSQL_IMAGE_NAME=mysql:5.7
 export KAFKA_IMAGE_NAME=registry.cn-hangzhou.aliyuncs.com/iotbull/iotbull-kafka:1.0.0
 export KAFKA_EAGLE_IMAGE_NAME=registry.cn-hangzhou.aliyuncs.com/iotbull/kafka-offset-monitor:1.0.0
 export GATEWAY_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
-export EUREKA_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
+export EUREKA_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-eureka:${IMG_VERSION}
 export CONFIGSRV_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
 export UAC_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
 
