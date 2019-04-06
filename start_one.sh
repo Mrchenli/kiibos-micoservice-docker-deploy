@@ -25,6 +25,7 @@ export GATEWAY_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-config
 export EUREKA_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
 export CONFIGSRV_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
 export UAC_IMAGE_NAME=registry.cn-hongkong.aliyuncs.com/kiibos/kiibos-configserver:${IMG_VERSION}
+
 ##<==image-version
 
 echo "1.creating network..."

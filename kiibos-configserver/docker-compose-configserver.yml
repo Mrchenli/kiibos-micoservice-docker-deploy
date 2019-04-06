@@ -8,16 +8,12 @@ services:
       - "8888:8888"
     image: ${CONFIGSRV_IMAGE_NAME}
     environment:
-      SPRING_ACTIVE_PROFILE: ${SP_PROFILE}
+      JAVA_OPTS: ${KIIBOS_JAVA_OPTS}
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 1
       restart_policy:
         condition: on-failure
-    #deploy:
-    #    placement:
-    #      constraints:
-    #        - engine.labels.function == nodeone
 
 networks:
   default:

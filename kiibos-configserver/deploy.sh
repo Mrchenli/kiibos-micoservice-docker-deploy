@@ -10,6 +10,8 @@ sleep 2s
 echo "remove ${ENV_NAME}_kiibos-configserver"
 
 echo "kiibos-configserver starting..."
+export KIIBOS_JAVA_OPTS="-server -Xms256m -Xmx256m -Xss512k"
+
 docker stack deploy -c ./docker-compose-configserver.yml ${ENV_NAME} --resolve-image changed --with-registry-auth
 sleep 1s
 
