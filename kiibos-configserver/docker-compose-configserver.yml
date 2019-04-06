@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+
+  kiibos-configserver:
+    container_name: kiibos-configserver
+    hostname: kiibos-configserver
+    ports:
+      - "8888:8888"
+    image: ${CONFIGSRV_IMAGE_NAME}
+    environment:
+      SPRING_ACTIVE_PROFILE: ${SP_PROFILE}
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    #deploy:
+    #    placement:
+    #      constraints:
+    #        - engine.labels.function == nodeone
+
+networks:
+  default:
+    external:
+      name: ${ENV_NAME}

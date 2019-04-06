@@ -1,0 +1,23 @@
+version: '3.3'
+services:
+  paascloud-eureka:
+      container_name: paascloud-eureka
+      hostname: paascloud-eureka
+      image: ${EUREKA_IMAGE_NAME}
+      deploy:
+        mode: replicated
+        replicas: 3
+        restart_policy:
+          condition: on-failure
+      #ports:
+      #  - "8761:8761"
+#      deploy:
+#        placement:
+#          constraints:
+#            - engine.labels.function == nodethree
+
+
+networks:
+  default:
+    external:
+      name: ${ENV_NAME}

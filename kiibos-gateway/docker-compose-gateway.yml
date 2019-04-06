@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+
+  kiibos-gateway:
+    deploy:
+      mode: replicated
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+    container_name: paascloud-gateway
+    #ports:
+    #  - target: 7979
+    #    published: 7979
+    #    protocol: tcp
+    #    mode: host
+
+    hostname: paascloud-gateway
+    image: ${GATEWAY_IMAGE_NAME}
+   
+
+networks:
+  default:
+    external:
+      name: ${ENV_NAME}
