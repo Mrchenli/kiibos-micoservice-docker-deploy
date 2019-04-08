@@ -1,0 +1,30 @@
+version: '3.3'
+services:
+  paascloud-db-mysql:
+    image: mysql:5.7
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    configs:
+      - source: mysql_config
+        target: /etc/mysql/conf.d/mysqld.cnf
+    volumes:
+      - mysql-log:/var/log/mysql
+      - mysql-data:/var/lib/mysql
+
+configs:
+  mysql_config:
+    file: ./mysqld.cnf
+
+
+volumes:
+  mysql-log:
+  mysql-data:
+
+
+networks:
+  default:
+    external:
+      name: ${ENV_NAME}
