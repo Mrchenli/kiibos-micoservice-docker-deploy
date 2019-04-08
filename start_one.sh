@@ -2,7 +2,7 @@
 
 export ENV_NAME=kiibos-micoservice
 export NODE_ONE=192.168.100.8
-export IP_RANGE=10.0.9.0/24
+export IP_RANGE=10.0.12.0/24
 
 ##nginx==>
 export GATEWAY_PORT=7080 #gateway 入口
